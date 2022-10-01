@@ -7,10 +7,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Controller\ArgumentResolverInterface;
 use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
-use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Matcher\UrlMatcherInterface;
-use function PHPUnit\Framework\returnArgument;
 
 class Framework
 {
@@ -49,7 +47,7 @@ class Framework
             return new Response('An error occurred', 500);
         }
 
-        $this->dispatcher->dispatch(new ResponseEvent($response, $request), 'response');
+        $this->dispatcher->dispatch(new ResponseEvent($request, $response), 'response');
 
         return $response;
     }
