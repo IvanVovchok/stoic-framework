@@ -5,9 +5,9 @@ use Symfony\Component\Routing;
 
 class LeapYearController
 {
-    public function index($request)
+    public function index(int $year)
     {
-        if (is_leap_year($request->attributes->get('year'))) {
+        if (is_leap_year($year)) {
             return new Response('Yep, this is a leap year!');
         }
 
@@ -27,7 +27,7 @@ function is_leap_year($year = null): bool
 $routes = new Routing\RouteCollection();
 $routes->add('leap_year', new Routing\Route('/is_leap_year/{year}', [
     'year' => null,
-    '_controller' => [new LeapYearController(), 'index'],
+    '_controller' => 'LeapYearController::index',
 ]));
 
 return $routes;
