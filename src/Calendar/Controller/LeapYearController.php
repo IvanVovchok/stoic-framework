@@ -11,9 +11,18 @@ class LeapYearController
     public function index(Request $request, int $year): Response
     {
         $leapYear = new LeapYear();
+
         if ($leapYear->isLeapYear($year)) {
-            return new Response('Yep, this is a leap year!');
+            $response = new Response('Yep, this is a leap year!');
+        } else {
+            $response = new Response('Nope, this is not a leap year.');
         }
+
+        $response->setTtl(10);
+
+        return $response;
+
+        $response->setTtl(10);
 
         return new Response('Nope, this is not a leap year.');
     }
