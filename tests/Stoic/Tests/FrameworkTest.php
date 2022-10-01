@@ -3,7 +3,6 @@
 namespace Stoic\Tests;
 
 use Calendar\Controller\LeapYearController;
-use PhpParser\Node\Arg;
 use PHPUnit\Framework\TestCase;
 use Stoic\Framework;
 use Symfony\Component\HttpFoundation\Request;
