@@ -26,7 +26,8 @@ $framework = new Stoic\Framework($dispatcher, $matcher, $controllerResolver, $ar
 $framework = new HttpKernel\HttpCache\HttpCache(
     $framework,
     new HttpKernel\HttpCache\Store(__DIR__.'/../cache'),
-    new HttpKernel\HttpCache\Esi()
+    new HttpKernel\HttpCache\Esi(),
+    ['debug' => true]
 );
 
 $response = $framework->handle($request);
