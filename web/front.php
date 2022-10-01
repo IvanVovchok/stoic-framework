@@ -27,6 +27,14 @@ $dispatcher->addListener('response', function (Stoic\ResponseEvent $event) {
 
     $response->setContent($response->getContent().'GA CODE');
 });
+$dispatcher->addListener('response', function (Stoic\ResponseEvent $event) {
+    $response = $event->getResponse();
+    $headers = $response->headers;
+
+    if (!$headers->has('Content-Length') && !$headers->has('Transfer-Encoding')) {
+        $headers->set('Content-Length', strlen($response->getContent()));
+    }
+}, -255);
 
 $controllerResolver = new ControllerResolver();
 $argumentResolver = new ArgumentResolver();
