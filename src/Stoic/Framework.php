@@ -40,7 +40,7 @@ class Framework
         } catch (ResourceNotFoundException $exception) {
             return new Response('Not Found', 404);
         } catch (\Exception $exception) {
-            return new Response('An error occured', 500);
+            return new Response('An error occurred', 500);
         }
     }
 }
