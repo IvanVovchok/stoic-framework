@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\EventDispatcher\Event;
 
-class ResponseEvent
+class ResponseEvent extends Event
 {
     private Request $request;
     private Response $response;
