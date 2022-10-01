@@ -15,26 +15,8 @@ $context = new Routing\RequestContext();
 $matcher = new Routing\Matcher\UrlMatcher($routes, $context);
 
 $dispatcher = new EventDispatcher();
-$dispatcher->addListener('response', function (Stoic\ResponseEvent $event) {
-    $response = $event->getResponse();
-
-    if ($response->isRedirection()
-        || ($response->headers->has('Content-Type') && !str_contains($response->headers->get('Content-Type'), 'html'))
-        || 'html' !== $event->getRequest()->getRequestFormat()
-    ) {
-        return;
-    }
-
-    $response->setContent($response->getContent().'GA CODE');
-});
-$dispatcher->addListener('response', function (Stoic\ResponseEvent $event) {
-    $response = $event->getResponse();
-    $headers = $response->headers;
-
-    if (!$headers->has('Content-Length') && !$headers->has('Transfer-Encoding')) {
-        $headers->set('Content-Length', strlen($response->getContent()));
-    }
-}, -255);
+$dispatcher->addListener('response', [new Stoic\ContentLengthListener(), 'onResponse'], -255);
+$dispatcher->addListener('response', [new Stoic\GoogleListener(), 'onResponse']);
 
 $controllerResolver = new ControllerResolver();
 $argumentResolver = new ArgumentResolver();
