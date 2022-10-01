@@ -15,8 +15,8 @@ $context = new Routing\RequestContext();
 $matcher = new Routing\Matcher\UrlMatcher($routes, $context);
 
 $dispatcher = new EventDispatcher();
-$dispatcher->addListener('response', [new Stoic\ContentLengthListener(), 'onResponse'], -255);
-$dispatcher->addListener('response', [new Stoic\GoogleListener(), 'onResponse']);
+$dispatcher->addSubscriber(new Stoic\ContentLengthListener());
+$dispatcher->addSubscriber(new Stoic\GoogleListener());
 
 $controllerResolver = new ControllerResolver();
 $argumentResolver = new ArgumentResolver();

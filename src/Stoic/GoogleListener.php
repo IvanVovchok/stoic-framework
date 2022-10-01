@@ -2,8 +2,16 @@
 
 namespace Stoic;
 
-class GoogleListener
+use JetBrains\PhpStorm\ArrayShape;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+class GoogleListener implements EventSubscriberInterface
 {
+    #[ArrayShape(['response' => "string"])] public static function getSubscribedEvents()
+    {
+        return ['response' => 'onResponse'];
+    }
+
     public function onResponse(ResponseEvent $event)
     {
         $response = $event->getResponse();
