@@ -6,8 +6,10 @@ use Models\StoicQuote;
 
 class WelcomeController
 {
-    public function index()
+    public function index(): string
     {
-        return 'welcome';
+        $stoicQuote = new StoicQuote();
+
+        return $stoicQuote->get();
     }
 }
