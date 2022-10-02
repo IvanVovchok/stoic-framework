@@ -1,6 +1,6 @@
 <?php
 
-namespace Welcomoe\Controller;
+namespace Controllers;
 
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\Response;
