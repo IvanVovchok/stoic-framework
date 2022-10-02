@@ -1,6 +1,6 @@
 <?php
 
-namespace Calendar\Controller;
+namespace Welcomoe\Controller;
 
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\Response;
