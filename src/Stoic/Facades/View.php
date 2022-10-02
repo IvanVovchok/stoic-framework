@@ -2,7 +2,7 @@
 
 namespace Stoic\Facades;
 
-class Template
+class View
 {
     private string $path;
 
