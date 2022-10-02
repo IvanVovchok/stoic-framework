@@ -3,7 +3,7 @@
 require_once __DIR__.'/../vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Request;
-use Stoic\StringResponseListener;
+use Stoic\Listeners\StringResponseListener;
 use Symfony\Component\DependencyInjection\Reference;
 
 $routes = include __DIR__.'/../src/app.php';
