@@ -19,7 +19,7 @@ And to brag about it, of course 🙌
 
 ## Installation
 
-Stoic requires [PHP](https://nodejs.org/) and [Composer](https://getcomposer.org/) to run.
+Stoic requires [PHP](https://www.php.net/) and [Composer](https://getcomposer.org/) to run.
 Make sure you have them installed before moving on.
 
 Clone the repository:
