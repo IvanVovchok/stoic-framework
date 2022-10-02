@@ -18,7 +18,7 @@ $containerBuilder->register('argument_resolver', HttpKernel\Controller\ArgumentR
 
 $containerBuilder->register('listener.router', HttpKernel\EventListener\RouterListener::class)
     ->setArguments([new Reference('matcher'), new Reference('request_stack')]);
-$containerBuilder->register('listener.response', new HttpKernel\EventListener\ResponseListener::class)
+$containerBuilder->register('listener.response', HttpKernel\EventListener\ResponseListener::class)
     ->setArguments(['UTF-8']);
 $containerBuilder->register('listener.exception', HttpKernel\EventListener\ErrorListener::class)
     ->setArguments(['Calendar\Controller\ErrorController::exception']);
@@ -26,7 +26,6 @@ $containerBuilder->register('dispatcher', EventDispatcher\EventDispatcher::class
     ->addMethodCall('addSubscriber', [new Reference('listener.router')])
     ->addMethodCall('addSubscriber', [new Reference('listener.response')])
     ->addMethodCall('addSubscriber', [new Reference('listener.exception')]);
-
 $containerBuilder->register('framework', Framework::class)
     ->setArguments([
         new Reference('dispatcher'),
