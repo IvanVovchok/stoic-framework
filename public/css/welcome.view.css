@@ -1,0 +1,37 @@
+:root {
+    --index: calc(1vw + 1vh);
+}
+
+body {
+    background: #000;
+}
+
+blockquote {
+    width: 80vw;
+    height: auto;
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+header {
+    font: normal 0.8em 'Josefin Sans', sans-serif;
+    text-decoration: none;
+    padding: 10px;
+    color: #FFF;
+}
+
+blockquote p {
+    font: 4em 'Abril Fatface', cursive;
+    font-size: calc(var(--index) * 2.65);
+    padding: 20px;
+    color: #FFF;
+}
+
+cite {
+    font: normal 1.2em 'Josefin Sans', sans-serif;
+    text-decoration: none;
+    padding: 10px;
+    border-top: solid 5px #FFF;
+    color: #FFF;
+}

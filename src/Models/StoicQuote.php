@@ -3,12 +3,18 @@
 namespace Models;
 
 use GuzzleHttp\Client;
+use Stoic\Facades\View;
 
 class StoicQuote
 {
     private string $stoicApiPath = 'https://stoicquotesapi.com/v1/api/quotes/random';
 
-    public function get(): string
+
+    /**
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Exception
+     */
+    public function get(): mixed
     {
         $client = new Client([
             'base_uri' => $this->stoicApiPath,
@@ -19,6 +25,6 @@ class StoicQuote
 
         $quoteData = json_decode($response);
 
-        return '"' . $quoteData->body . '" - ' . $quoteData ->author;
+        return $quoteData;
     }
 }
