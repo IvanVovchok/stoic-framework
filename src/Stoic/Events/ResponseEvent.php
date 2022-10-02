@@ -1,6 +1,6 @@
 <?php
 
-namespace Stoic;
+namespace Stoic\Events;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

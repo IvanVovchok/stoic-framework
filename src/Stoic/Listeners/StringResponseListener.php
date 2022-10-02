@@ -1,6 +1,6 @@
 <?php
 
-namespace Stoic;
+namespace Stoic\Listeners;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Response;
