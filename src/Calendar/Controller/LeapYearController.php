@@ -21,9 +21,5 @@ class LeapYearController
         $response->setTtl(10);
 
         return $response;
-
-        $response->setTtl(10);
-
-        return new Response('Nope, this is not a leap year.');
     }
 }
